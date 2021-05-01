@@ -1,6 +1,4 @@
-# Single Market Shopping 
+# Single Market Shopping ReactJS & Redux
 
-Bu uygulama React JS & Redux ile yapılmıştır. 
-
-[Demo Link: emine.com](https://github.com/facebook/create-react-app).
+[Demo Link: https://market-nine.vercel.app/](https://market-nine.vercel.app/).
 

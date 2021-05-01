@@ -1,6 +1,7 @@
 import * as types from './actionTypes'
 import * as productApi from '../../api/productApi'
 import { beginApiCall, apiCallError } from './apiStatusActions'
+import { buildSortedQuery } from '../../helpers/utils';
 
 export function loadProductsSuccess (products) {
   return { type: types.LOAD_PRODUCTS_SUCCESS, products }
@@ -35,14 +36,4 @@ export const getFilter = (param) => {
   if (sort) { query.push(sort) }
 
   return query.join('&')
-}
-
-export const buildSortedQuery = (key, args) => {
-  return args
-    .map(item => {
-      return window.encodeURIComponent(key) +
-              '=' +
-              window.encodeURIComponent(item)
-    })
-    .join('&')
 }

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { removeItem, increaseQuantity, decreaseQuantity} from '../../redux/actions/basketActions'
-import { formatNumber } from '../../helpers/utils';
+import { removeItem, increaseQuantity, decreaseQuantity } from '../../redux/actions/basketActions'
+import { formatNumber } from '../../helpers/utils'
 import minus from '../../assets/minus.svg'
 import plus from '../../assets/plus.svg'
 
-const BasketItem = ({basket, removeItem, increaseQuantity, decreaseQuantity  }) => {
+const BasketItem = ({ basket, removeItem, increaseQuantity, decreaseQuantity }) => {
   return (
-    basket.basket.map(item=>{
+    basket.basket.map(item => {
       return (
         <Wrapper className="d-flex justify-content-between align-items-center" key={item.slug}>
           <div>
@@ -16,25 +16,25 @@ const BasketItem = ({basket, removeItem, increaseQuantity, decreaseQuantity  }) 
           </div>
           <div className="d-flex justify-content-between align-items-center">
             {
-              item.quantity > 1 && 
-              <Button onClick={()=>{decreaseQuantity(item)}}>
+              item.quantity > 1 &&
+              <Button onClick={() => { decreaseQuantity(item) }}>
                 <img src={minus} alt="minus"/>
               </Button>
             }
             {
-              item.quantity === 1 && 
-              <Button onClick={()=>{removeItem(item)}}>
+              item.quantity === 1 &&
+              <Button onClick={() => { removeItem(item) }}>
                 <img src={minus} alt="minus"/>
               </Button>
             }
             <Label>{item.quantity}</Label>
-            <Button onClick={()=>{increaseQuantity(item)}}>
+            <Button onClick={() => { increaseQuantity(item) }}>
               <img src={plus} alt="plus"/>
             </Button>
           </div>
         </Wrapper>
-      );
-    }) 
+      )
+    })
   )
 }
 
@@ -62,7 +62,7 @@ const Price = styled.p`
 
 const mapStateToProps = state => {
   return {
-    basket: state.basket,
+    basket: state.basket
   }
 }
 
